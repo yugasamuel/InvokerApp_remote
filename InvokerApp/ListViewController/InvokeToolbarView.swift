@@ -14,8 +14,14 @@ class InvokeToolbarView: UIView {
     private var exortButton = UIButton(type: .custom)
     private var invokeButton = UIButton(type: .custom)
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var onChange: ((Spell.Element) -> Void)
+    var onInvoke: (() -> Void)
+    
+    init(onChange: @escaping (Spell.Element) -> Void, onInvoke: @escaping () -> Void) {
+        self.onChange = onChange
+        self.onInvoke = onInvoke
+        
+        super.init(frame: .zero)
         prepareSubviews()
     }
     
@@ -26,7 +32,7 @@ class InvokeToolbarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
+
     func prepareSubviews() {
         addSubview(containerView)
         containerView.addArrangedSubview(quasButton)
@@ -75,5 +81,21 @@ class InvokeToolbarView: UIView {
         invokeButton.heightAnchor.constraint(equalTo: invokeButton.widthAnchor, multiplier: 1).isActive = true
         invokeButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         invokeButton.addTarget(self, action: #selector(invokeSpells(_:)), for: .touchUpInside)
+    }
+    
+    @objc func quasTapped(_ sender: UIButton) {
+        self.onChange(.Quas)
+    }
+    
+    @objc func wexTapped(_ sender: UIButton) {
+        self.onChange(.Wex)
+    }
+    
+    @objc func exortTapped(_ sender: UIButton) {
+        self.onChange(.Exort)
+    }
+    
+    @objc func invokeSpells(_ sender: UIButton) {
+        self.onInvoke()
     }
 }

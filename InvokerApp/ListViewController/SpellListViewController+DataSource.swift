@@ -15,6 +15,7 @@ extension SpellListViewController {
         let spell = spell(withId: id)
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = spell.spellName
+        contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: .headline)
         contentConfiguration.secondaryText = spell.elementsAbbreviation
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
         
@@ -35,6 +36,7 @@ extension SpellListViewController {
             snapshot.reloadItems(ids)
         }
         dataSource.apply(snapshot)
+        headerView?.elements = currentElements.map { $0.rawValue }
     }
     
     func spell(withId id: Spell.ID) -> Spell {
