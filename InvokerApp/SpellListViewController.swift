@@ -42,7 +42,10 @@ class SpellListViewController: UICollectionViewController {
         contentConfiguration.text = spell.spellName
         contentConfiguration.secondaryText = spell.elementsAbbreviation
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
+        
         contentConfiguration.image = UIImage(named: spell.spellName)
+        contentConfiguration.imageProperties.maximumSize = CGSize(width: 44, height: 44)
+        
         cell.contentConfiguration = contentConfiguration
         
         let backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
