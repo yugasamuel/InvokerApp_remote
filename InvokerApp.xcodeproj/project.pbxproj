@@ -15,6 +15,7 @@
 		656729AE2B4E724C00CF1B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656729AC2B4E724C00CF1B0C /* LaunchScreen.storyboard */; };
 		656729B82B4E801000CF1B0C /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729B72B4E801000CF1B0C /* Spell.swift */; };
 		656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */; };
+		656729BE2B4EE59700CF1B0C /* InvokeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		656729AF2B4E724C00CF1B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		656729B72B4E801000CF1B0C /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpellListViewController+DataSource.swift"; sourceTree = "<group>"; };
+		656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +64,32 @@
 			children = (
 				656729A12B4E724A00CF1B0C /* AppDelegate.swift */,
 				656729A32B4E724A00CF1B0C /* SceneDelegate.swift */,
-				656729A52B4E724A00CF1B0C /* SpellListViewController.swift */,
-				656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */,
-				656729B72B4E801000CF1B0C /* Spell.swift */,
+				656729BB2B4EE54900CF1B0C /* ListViewController */,
+				656729BC2B4EE55600CF1B0C /* Models */,
 				656729A72B4E724A00CF1B0C /* Main.storyboard */,
 				656729AA2B4E724C00CF1B0C /* Assets.xcassets */,
 				656729AC2B4E724C00CF1B0C /* LaunchScreen.storyboard */,
 				656729AF2B4E724C00CF1B0C /* Info.plist */,
 			);
 			path = InvokerApp;
+			sourceTree = "<group>";
+		};
+		656729BB2B4EE54900CF1B0C /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				656729A52B4E724A00CF1B0C /* SpellListViewController.swift */,
+				656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */,
+				656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */,
+			);
+			path = ListViewController;
+			sourceTree = "<group>";
+		};
+		656729BC2B4EE55600CF1B0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				656729B72B4E801000CF1B0C /* Spell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656729A62B4E724A00CF1B0C /* SpellListViewController.swift in Sources */,
+				656729BE2B4EE59700CF1B0C /* InvokeFooterView.swift in Sources */,
 				656729A22B4E724A00CF1B0C /* AppDelegate.swift in Sources */,
 				656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */,
 				656729B82B4E801000CF1B0C /* Spell.swift in Sources */,

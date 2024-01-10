@@ -10,6 +10,7 @@ import UIKit
 class SpellListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var spells: [Spell] = Spell.sampleData
+    var footerView: InvokeFooterView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +25,25 @@ class SpellListViewController: UICollectionViewController {
                 using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
-        updateSnapshot()
+        let footerRegistration = UICollectionView.SupplementaryRegistration(
+            elementKind: InvokeFooterView.elementKind, handler: supplementaryRegistrationHandler)
+        dataSource.supplementaryViewProvider = { supplementaryView, elementKind, indexPath in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(
+                using: footerRegistration, for: indexPath)
+        }
         
+        updateSnapshot()
         collectionView.dataSource = dataSource
     }
     
     func listLayout() -> UICollectionViewCompositionalLayout {
-        let listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        listConfiguration.footerMode = .supplementary
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
+    }
+
+    private func supplementaryRegistrationHandler(invokeView: InvokeFooterView, elementKind: String, indexPath: IndexPath) {
+        footerView = invokeView
     }
 }
 
