@@ -15,7 +15,9 @@
 		656729AE2B4E724C00CF1B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656729AC2B4E724C00CF1B0C /* LaunchScreen.storyboard */; };
 		656729B82B4E801000CF1B0C /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729B72B4E801000CF1B0C /* Spell.swift */; };
 		656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */; };
-		656729BE2B4EE59700CF1B0C /* InvokeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */; };
+		656729BE2B4EE59700CF1B0C /* InvokeToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BD2B4EE59700CF1B0C /* InvokeToolbarView.swift */; };
+		656729C02B4F065C00CF1B0C /* InvokeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */; };
+		656729C22B4F096F00CF1B0C /* InvokeToolbarView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729C12B4F096F00CF1B0C /* InvokeToolbarView+Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,9 @@
 		656729AF2B4E724C00CF1B0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		656729B72B4E801000CF1B0C /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpellListViewController+DataSource.swift"; sourceTree = "<group>"; };
-		656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeFooterView.swift; sourceTree = "<group>"; };
+		656729BD2B4EE59700CF1B0C /* InvokeToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeToolbarView.swift; sourceTree = "<group>"; };
+		656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeHeaderView.swift; sourceTree = "<group>"; };
+		656729C12B4F096F00CF1B0C /* InvokeToolbarView+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvokeToolbarView+Actions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 			children = (
 				656729A52B4E724A00CF1B0C /* SpellListViewController.swift */,
 				656729B92B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift */,
-				656729BD2B4EE59700CF1B0C /* InvokeFooterView.swift */,
+				656729BD2B4EE59700CF1B0C /* InvokeToolbarView.swift */,
+				656729C12B4F096F00CF1B0C /* InvokeToolbarView+Actions.swift */,
+				656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -163,10 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656729C22B4F096F00CF1B0C /* InvokeToolbarView+Actions.swift in Sources */,
 				656729A62B4E724A00CF1B0C /* SpellListViewController.swift in Sources */,
-				656729BE2B4EE59700CF1B0C /* InvokeFooterView.swift in Sources */,
+				656729BE2B4EE59700CF1B0C /* InvokeToolbarView.swift in Sources */,
 				656729A22B4E724A00CF1B0C /* AppDelegate.swift in Sources */,
 				656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */,
+				656729C02B4F065C00CF1B0C /* InvokeHeaderView.swift in Sources */,
 				656729B82B4E801000CF1B0C /* Spell.swift in Sources */,
 				656729A42B4E724A00CF1B0C /* SceneDelegate.swift in Sources */,
 			);

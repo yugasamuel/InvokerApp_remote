@@ -30,7 +30,7 @@ extension SpellListViewController {
     func updateSnapshot(reloading ids: [Spell.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(spells.map { $0.id })
+        snapshot.appendItems(spellsInvoked.map { $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }
@@ -38,7 +38,7 @@ extension SpellListViewController {
     }
     
     func spell(withId id: Spell.ID) -> Spell {
-        let index = spells.indexOfSpell(withId: id)
-        return spells[index]
+        let index = spellsInvoked.indexOfSpell(withId: id)
+        return spellsInvoked[index]
     }
 }

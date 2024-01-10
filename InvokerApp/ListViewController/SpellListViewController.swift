@@ -9,8 +9,10 @@ import UIKit
 
 class SpellListViewController: UICollectionViewController {
     var dataSource: DataSource!
-    var spells: [Spell] = Spell.sampleData
-    var footerView: InvokeFooterView?
+    var spellsInvoked: [Spell] = Spell.sampleData
+    var currentElements: [Spell.Element] = [.None, .None, .None]
+    var headerView: InvokeHeaderView?
+    var toolbarView: InvokeToolbarView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,25 +27,40 @@ class SpellListViewController: UICollectionViewController {
                 using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
-        let footerRegistration = UICollectionView.SupplementaryRegistration(
-            elementKind: InvokeFooterView.elementKind, handler: supplementaryRegistrationHandler)
+        let headerRegistration = UICollectionView.SupplementaryRegistration(
+            elementKind: InvokeHeaderView.elementKind, handler: supplementaryRegistrationHandler)
         dataSource.supplementaryViewProvider = { supplementaryView, elementKind, indexPath in
             return self.collectionView.dequeueConfiguredReusableSupplementary(
-                using: footerRegistration, for: indexPath)
+                using: headerRegistration, for: indexPath)
         }
         
+        toolbarView = InvokeToolbarView(frame: .zero)
+        let invokeToolbar = UIBarButtonItem(customView: toolbarView!)
+        toolbarItems = [invokeToolbar]
+        navigationController?.isToolbarHidden = false
+        
         updateSnapshot()
+        
         collectionView.dataSource = dataSource
     }
     
     func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
-        listConfiguration.footerMode = .supplementary
+        listConfiguration.headerMode = .supplementary
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        guard elementKind == InvokeHeaderView.elementKind, let headerView = view as? InvokeHeaderView else {
+            return
+        }
+        
+        let elements = currentElements.map { $0.rawValue }
+        headerView.elements = elements
+    }
 
-    private func supplementaryRegistrationHandler(invokeView: InvokeFooterView, elementKind: String, indexPath: IndexPath) {
-        footerView = invokeView
+    private func supplementaryRegistrationHandler(invokeHeaderView: InvokeHeaderView, elementKind: String, indexPath: IndexPath) {
+        headerView = invokeHeaderView
     }
 }
 

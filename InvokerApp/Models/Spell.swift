@@ -25,6 +25,7 @@ extension Spell {
         case Quas
         case Wex
         case Exort
+        case None
     }
     
     static var sampleData = [
