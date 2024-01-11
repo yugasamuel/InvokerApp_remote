@@ -46,8 +46,15 @@ extension Spell {
     
     static var sampleData = [
         Spell(elements: [.Quas, .Quas, .Quas]),
+        Spell(elements: [.Quas, .Quas, .Wex]),
+        Spell(elements: [.Quas, .Quas, .Exort]),
         Spell(elements: [.Wex, .Wex, .Wex]),
+        Spell(elements: [.Wex, .Wex, .Quas]),
+        Spell(elements: [.Wex, .Wex, .Exort]),
         Spell(elements: [.Exort, .Exort, .Exort]),
+        Spell(elements: [.Exort, .Exort, .Wex]),
+        Spell(elements: [.Exort, .Exort, .Quas]),
+        Spell(elements: [.Quas, .Wex, .Exort]),
     ]
     
     static let combinationName: [NSCountedSet: String] = [

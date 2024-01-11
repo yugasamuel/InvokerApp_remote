@@ -9,7 +9,7 @@ import UIKit
 
 class SpellListViewController: UICollectionViewController {
     var dataSource: DataSource!
-    var spellsInvoked: [Spell] = Spell.sampleData
+    var spellsInvoked: [Spell] = []
     var currentElements: [Spell.Element] = [.None, .None, .None]
     var headerView: InvokeHeaderView?
     var toolbarView: InvokeToolbarView?
@@ -34,6 +34,16 @@ class SpellListViewController: UICollectionViewController {
                 using: headerRegistration, for: indexPath)
         }
         
+        configureToolbar()
+        
+        configureBarButtons()
+        
+        updateSnapshot()
+        
+        collectionView.dataSource = dataSource
+    }
+    
+    func configureToolbar() {
         toolbarView = InvokeToolbarView(onChange: { [weak self] element in
             self?.appendNewElement(element)
         }, onInvoke: { [weak self] in
@@ -42,13 +52,12 @@ class SpellListViewController: UICollectionViewController {
         let invokeToolbar = UIBarButtonItem(customView: toolbarView!)
         toolbarItems = [invokeToolbar]
         navigationController?.isToolbarHidden = false
-        
-        let clearAllButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "eraser"), target: self, action: #selector(didPressClearButton(_:)))
-        navigationItem.rightBarButtonItem = clearAllButton
-        
-        updateSnapshot()
-        
-        collectionView.dataSource = dataSource
+    }
+    
+    func configureBarButtons() {
+        let clearButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "eraser"), target: self, action: #selector(didPressClearButton(_:)))
+        let seeGuideButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "book"), target: self, action: #selector(didPressGuideButton(_:)))
+        navigationItem.rightBarButtonItems = [seeGuideButton, clearButton]
     }
     
     func showAlert() {

@@ -18,6 +18,7 @@
 		656729BE2B4EE59700CF1B0C /* InvokeToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BD2B4EE59700CF1B0C /* InvokeToolbarView.swift */; };
 		656729C02B4F065C00CF1B0C /* InvokeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */; };
 		656729C62B4FC0B200CF1B0C /* SpellListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729C52B4FC0B200CF1B0C /* SpellListViewController+Actions.swift */; };
+		656729CB2B4FC57E00CF1B0C /* SpellGuideListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729CA2B4FC57E00CF1B0C /* SpellGuideListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		656729BD2B4EE59700CF1B0C /* InvokeToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeToolbarView.swift; sourceTree = "<group>"; };
 		656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeHeaderView.swift; sourceTree = "<group>"; };
 		656729C52B4FC0B200CF1B0C /* SpellListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpellListViewController+Actions.swift"; sourceTree = "<group>"; };
+		656729CA2B4FC57E00CF1B0C /* SpellGuideListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellGuideListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				656729A12B4E724A00CF1B0C /* AppDelegate.swift */,
 				656729A32B4E724A00CF1B0C /* SceneDelegate.swift */,
 				656729BB2B4EE54900CF1B0C /* ListViewController */,
+				656729CC2B4FC89B00CF1B0C /* SpellGuideListViewController */,
 				656729BC2B4EE55600CF1B0C /* Models */,
 				656729A72B4E724A00CF1B0C /* Main.storyboard */,
 				656729AA2B4E724C00CF1B0C /* Assets.xcassets */,
@@ -96,6 +99,14 @@
 				656729B72B4E801000CF1B0C /* Spell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		656729CC2B4FC89B00CF1B0C /* SpellGuideListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				656729CA2B4FC57E00CF1B0C /* SpellGuideListViewController.swift */,
+			);
+			path = SpellGuideListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 				656729BE2B4EE59700CF1B0C /* InvokeToolbarView.swift in Sources */,
 				656729A22B4E724A00CF1B0C /* AppDelegate.swift in Sources */,
 				656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */,
+				656729CB2B4FC57E00CF1B0C /* SpellGuideListViewController.swift in Sources */,
 				656729C02B4F065C00CF1B0C /* InvokeHeaderView.swift in Sources */,
 				656729B82B4E801000CF1B0C /* Spell.swift in Sources */,
 				656729A42B4E724A00CF1B0C /* SceneDelegate.swift in Sources */,
