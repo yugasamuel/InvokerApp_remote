@@ -43,33 +43,35 @@ class SpellListViewController: UICollectionViewController {
         toolbarItems = [invokeToolbar]
         navigationController?.isToolbarHidden = false
         
+        let clearAllButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "eraser"), target: self, action: #selector(didPressClearButton(_:)))
+        navigationItem.rightBarButtonItem = clearAllButton
+        
         updateSnapshot()
         
         collectionView.dataSource = dataSource
     }
     
-    private func appendNewElement(_ element: Spell.Element) {
-        if currentElements[0] == .None {
-            currentElements.insert(element, at: 0)
-            currentElements.removeLast()
-        } else if currentElements[1] == .None {
-            currentElements.insert(element, at: 1)
-            currentElements.removeLast()
-        } else if currentElements[2] == .None {
-            currentElements.insert(element, at: 2)
-            currentElements.removeLast()
-        } else {
-            currentElements.append(element)
-            currentElements.removeFirst()
-        }
+    func showAlert() {
+        let alertTitle = NSLocalizedString("Clear spells?", comment: "Alert title")
+        let alert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         
-        updateSnapshot()
-    }
-    
-    private func invokeSpell() {
-        let invokedSpell = Spell(elements: currentElements)
-        spellsInvoked.insert(invokedSpell, at: 0)
-        updateSnapshot()
+        alert.addAction(
+            UIAlertAction(
+                title: "Yes", style: .default,
+                handler: { [weak self] _ in
+                    self?.clearAllSpells()
+                    self?.dismiss(animated: true)
+                })
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "Cancel", style: .cancel,
+                handler: { [weak self] _ in
+                    self?.dismiss(animated: true)
+                })
+        )
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func listLayout() -> UICollectionViewCompositionalLayout {

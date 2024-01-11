@@ -39,6 +39,34 @@ extension SpellListViewController {
         headerView?.elements = currentElements.map { $0.rawValue }
     }
     
+    func invokeSpell() {
+        let invokedSpell = Spell(elements: currentElements)
+        spellsInvoked.insert(invokedSpell, at: 0)
+        updateSnapshot()
+    }
+    
+    func appendNewElement(_ element: Spell.Element) {
+        if currentElements[0] == .None {
+            currentElements.insert(element, at: 0)
+            currentElements.removeLast()
+        } else if currentElements[1] == .None {
+            currentElements.insert(element, at: 1)
+            currentElements.removeLast()
+        } else if currentElements[2] == .None {
+            currentElements.insert(element, at: 2)
+            currentElements.removeLast()
+        } else {
+            currentElements.append(element)
+            currentElements.removeFirst()
+        }
+        updateSnapshot()
+    }
+    
+    func clearAllSpells() {
+        spellsInvoked.removeAll()
+        updateSnapshot()
+    }
+    
     func spell(withId id: Spell.ID) -> Spell {
         let index = spellsInvoked.indexOfSpell(withId: id)
         return spellsInvoked[index]
