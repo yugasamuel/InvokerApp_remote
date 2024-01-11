@@ -13,6 +13,7 @@ class SpellListViewController: UICollectionViewController {
     var currentElements: [Spell.Element] = [.None, .None, .None]
     var headerView: InvokeHeaderView?
     var toolbarView: InvokeToolbarView?
+    var spellsStorage = SpellsStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,9 @@ class SpellListViewController: UICollectionViewController {
         }
         
         configureToolbar()
-        
         configureBarButtons()
         
+        spellsInvoked = spellsStorage.loadSpells()
         updateSnapshot()
         
         collectionView.dataSource = dataSource

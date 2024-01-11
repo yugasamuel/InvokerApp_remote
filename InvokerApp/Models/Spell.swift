@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Spell: Identifiable {
+struct Spell: Identifiable, Codable {
     var id = UUID()
     let elements: [Element]
     
@@ -37,7 +37,7 @@ struct Spell: Identifiable {
 }
 
 extension Spell {
-    enum Element: String {
+    enum Element: String, Codable {
         case Quas
         case Wex
         case Exort

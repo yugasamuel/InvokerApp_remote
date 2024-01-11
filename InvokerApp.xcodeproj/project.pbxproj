@@ -19,6 +19,8 @@
 		656729C02B4F065C00CF1B0C /* InvokeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */; };
 		656729C62B4FC0B200CF1B0C /* SpellListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729C52B4FC0B200CF1B0C /* SpellListViewController+Actions.swift */; };
 		656729CB2B4FC57E00CF1B0C /* SpellGuideListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729CA2B4FC57E00CF1B0C /* SpellGuideListViewController.swift */; };
+		656729D02B4FD67900CF1B0C /* SpellsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729CF2B4FD67900CF1B0C /* SpellsStorage.swift */; };
+		656729D22B4FD6C400CF1B0C /* FileManager+Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656729D12B4FD6C400CF1B0C /* FileManager+Spell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		656729BF2B4F065C00CF1B0C /* InvokeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokeHeaderView.swift; sourceTree = "<group>"; };
 		656729C52B4FC0B200CF1B0C /* SpellListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpellListViewController+Actions.swift"; sourceTree = "<group>"; };
 		656729CA2B4FC57E00CF1B0C /* SpellGuideListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellGuideListViewController.swift; sourceTree = "<group>"; };
+		656729CF2B4FD67900CF1B0C /* SpellsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsStorage.swift; sourceTree = "<group>"; };
+		656729D12B4FD6C400CF1B0C /* FileManager+Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Spell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				656729B72B4E801000CF1B0C /* Spell.swift */,
+				656729CF2B4FD67900CF1B0C /* SpellsStorage.swift */,
+				656729D12B4FD6C400CF1B0C /* FileManager+Spell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,8 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656729D02B4FD67900CF1B0C /* SpellsStorage.swift in Sources */,
 				656729A62B4E724A00CF1B0C /* SpellListViewController.swift in Sources */,
 				656729BE2B4EE59700CF1B0C /* InvokeToolbarView.swift in Sources */,
+				656729D22B4FD6C400CF1B0C /* FileManager+Spell.swift in Sources */,
 				656729A22B4E724A00CF1B0C /* AppDelegate.swift in Sources */,
 				656729BA2B4EDCBD00CF1B0C /* SpellListViewController+DataSource.swift in Sources */,
 				656729CB2B4FC57E00CF1B0C /* SpellGuideListViewController.swift in Sources */,

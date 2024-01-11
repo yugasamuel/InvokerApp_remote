@@ -43,6 +43,8 @@ extension SpellListViewController {
         let invokedSpell = Spell(elements: currentElements)
         spellsInvoked.insert(invokedSpell, at: 0)
         updateSnapshot()
+        
+        spellsStorage.saveSpells(spellsInvoked)
     }
     
     func appendNewElement(_ element: Spell.Element) {
@@ -62,9 +64,17 @@ extension SpellListViewController {
         updateSnapshot()
     }
     
+    func loadSpells() {
+        spellsInvoked = spellsStorage.loadSpells()
+        
+        updateSnapshot()
+    }
+    
     func clearAllSpells() {
         spellsInvoked.removeAll()
         updateSnapshot()
+        
+        spellsStorage.saveSpells(spellsInvoked)
     }
     
     func spell(withId id: Spell.ID) -> Spell {
