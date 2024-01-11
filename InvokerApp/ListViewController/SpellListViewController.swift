@@ -44,14 +44,13 @@ class SpellListViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        collectionView.backgroundView = nil
-//        let backgroundView = UIView()
-//        let gradientLayer = CAGradientLayer.gradientLayer(in: collectionView.frame)
-//        backgroundView.layer.addSublayer(gradientLayer)
-//        collectionView.backgroundView = backgroundView
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.backgroundView = nil
+        let backgroundView = UIImageView(image: .invokerDotaBackground)
+        backgroundView.contentMode = .scaleAspectFit
+        collectionView.backgroundView = backgroundView
+    }
     
     func configureToolbar() {
         toolbarView = InvokeToolbarView(onChange: { [weak self] element in
