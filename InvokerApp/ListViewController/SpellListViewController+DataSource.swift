@@ -24,7 +24,8 @@ extension SpellListViewController {
         
         cell.contentConfiguration = contentConfiguration
         
-        let backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
+        var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
+        backgroundConfiguration.backgroundColor = .invokerCellBackground
         cell.backgroundConfiguration = backgroundConfiguration
     }
     

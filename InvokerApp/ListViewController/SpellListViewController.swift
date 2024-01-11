@@ -44,6 +44,15 @@ class SpellListViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        collectionView.backgroundView = nil
+//        let backgroundView = UIView()
+//        let gradientLayer = CAGradientLayer.gradientLayer(in: collectionView.frame)
+//        backgroundView.layer.addSublayer(gradientLayer)
+//        collectionView.backgroundView = backgroundView
+//    }
+    
     func configureToolbar() {
         toolbarView = InvokeToolbarView(onChange: { [weak self] element in
             self?.appendNewElement(element)
@@ -56,13 +65,14 @@ class SpellListViewController: UICollectionViewController {
     }
     
     func configureBarButtons() {
-        let clearButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "eraser"), target: self, action: #selector(didPressClearButton(_:)))
+        let resetButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "arrow.clockwise"), target: self, action: #selector(didPressResetButton(_:)))
         let seeGuideButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "book"), target: self, action: #selector(didPressGuideButton(_:)))
-        navigationItem.rightBarButtonItems = [seeGuideButton, clearButton]
+        navigationItem.rightBarButtonItems = [resetButton]
+        navigationItem.leftBarButtonItems = [seeGuideButton]
     }
     
     func showAlert() {
-        let alertTitle = NSLocalizedString("Clear spells?", comment: "Alert title")
+        let alertTitle = NSLocalizedString("Rest all spells?", comment: "Alert title")
         let alert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         
         alert.addAction(
@@ -87,6 +97,7 @@ class SpellListViewController: UICollectionViewController {
     func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         listConfiguration.headerMode = .supplementary
+        listConfiguration.backgroundColor = .clear
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
     

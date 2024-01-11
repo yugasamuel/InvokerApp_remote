@@ -8,7 +8,7 @@
 import UIKit
 
 extension SpellListViewController {
-    @objc func didPressClearButton(_ sender: UIBarButtonItem) {
+    @objc func didPressResetButton(_ sender: UIBarButtonItem) {
         showAlert()
     }
     

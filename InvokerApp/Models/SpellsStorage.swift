@@ -14,7 +14,6 @@ final class SpellsStorage {
         do {
             let data = try Data(contentsOf: savePath)
             let spells = try JSONDecoder().decode([Spell].self, from: data)
-            print("sucess")
             return spells
         } catch {
             return []
@@ -25,7 +24,6 @@ final class SpellsStorage {
         do {
             let data = try JSONEncoder().encode(spells)
             try data.write(to: savePath)
-            print("sucess save!")
         } catch {
             print("Failed to save spells. \(error.localizedDescription)")
         }
