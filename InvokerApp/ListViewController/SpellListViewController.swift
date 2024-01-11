@@ -37,7 +37,7 @@ class SpellListViewController: UICollectionViewController {
         toolbarView = InvokeToolbarView(onChange: { [weak self] element in
             self?.appendNewElement(element)
         }, onInvoke: { [weak self] in
-            self?.invokeSpells()
+            self?.invokeSpell()
         })
         let invokeToolbar = UIBarButtonItem(customView: toolbarView!)
         toolbarItems = [invokeToolbar]
@@ -49,14 +49,27 @@ class SpellListViewController: UICollectionViewController {
     }
     
     private func appendNewElement(_ element: Spell.Element) {
-        currentElements.insert(element, at: 0)
-        currentElements.removeLast()
+        if currentElements[0] == .None {
+            currentElements.insert(element, at: 0)
+            currentElements.removeLast()
+        } else if currentElements[1] == .None {
+            currentElements.insert(element, at: 1)
+            currentElements.removeLast()
+        } else if currentElements[2] == .None {
+            currentElements.insert(element, at: 2)
+            currentElements.removeLast()
+        } else {
+            currentElements.append(element)
+            currentElements.removeFirst()
+        }
+        
         updateSnapshot()
-        print("added")
     }
     
-    private func invokeSpells() {
-        
+    private func invokeSpell() {
+        let invokedSpell = Spell(elements: currentElements)
+        spellsInvoked.insert(invokedSpell, at: 0)
+        updateSnapshot()
     }
     
     func listLayout() -> UICollectionViewCompositionalLayout {

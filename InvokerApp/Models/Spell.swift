@@ -5,7 +5,7 @@
 //  Created by Yuga Samuel on 10/01/24.
 //
 
-import Foundation
+import UIKit
 
 struct Spell: Identifiable {
     var id = UUID()
@@ -15,8 +15,24 @@ struct Spell: Identifiable {
         let countedSet = NSCountedSet(array: elements)
         return Spell.combinationName[countedSet] ?? "Sun Strike"
     }
-    var elementsAbbreviation: String {
-        return elements.map { String($0.rawValue.first!) }.joined()
+    var elementsJoined: NSAttributedString {
+        let joinedString = elements.map { String($0.rawValue) }.joined(separator: " ")
+        
+        let attributedString = NSMutableAttributedString(string: joinedString)
+        
+        var currentIndex = joinedString.startIndex
+        
+        for element in elements {
+            if let range = joinedString.range(of: String(element.rawValue), range: currentIndex..<joinedString.endIndex) {
+                let start = joinedString.distance(from: joinedString.startIndex, to: range.lowerBound)
+                let end = joinedString.distance(from: joinedString.startIndex, to: range.upperBound)
+                let color = element == .Quas ? UIColor(resource: .invokerQuas) : element == .Wex ? UIColor(resource: .invokerWex) : UIColor(resource: .invokerExort)
+                attributedString.addAttribute(.foregroundColor, value: color, range: NSRange(location: start, length: end - start))
+                currentIndex = range.upperBound
+            }
+        }
+        
+        return attributedString
     }
 }
 

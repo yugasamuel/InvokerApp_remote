@@ -80,7 +80,7 @@ class InvokeToolbarView: UIView {
         invokeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         invokeButton.heightAnchor.constraint(equalTo: invokeButton.widthAnchor, multiplier: 1).isActive = true
         invokeButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        invokeButton.addTarget(self, action: #selector(invokeSpells(_:)), for: .touchUpInside)
+        invokeButton.addTarget(self, action: #selector(invokeSpell(_:)), for: .touchUpInside)
     }
     
     @objc func quasTapped(_ sender: UIButton) {
@@ -95,7 +95,7 @@ class InvokeToolbarView: UIView {
         self.onChange(.Exort)
     }
     
-    @objc func invokeSpells(_ sender: UIButton) {
+    @objc func invokeSpell(_ sender: UIButton) {
         self.onInvoke()
     }
 }

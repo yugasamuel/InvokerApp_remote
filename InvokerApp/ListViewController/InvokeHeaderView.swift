@@ -51,7 +51,7 @@ class InvokeHeaderView: UICollectionReusableView {
         containerView.axis = .horizontal
         containerView.alignment = .center
         containerView.distribution = .equalCentering
-        containerView.spacing = 4
+        containerView.spacing = 8
         
         heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15).isActive = true
         containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1).isActive = true

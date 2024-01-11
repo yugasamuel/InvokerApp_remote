@@ -16,7 +16,7 @@ extension SpellListViewController {
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = spell.spellName
         contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: .headline)
-        contentConfiguration.secondaryText = spell.elementsAbbreviation
+        contentConfiguration.secondaryAttributedText = spell.elementsJoined
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
         
         contentConfiguration.image = UIImage(named: spell.spellName)
